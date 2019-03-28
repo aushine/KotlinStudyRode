@@ -51,7 +51,7 @@ fun main(){
     println(x)
     QACommuntity("www.bilibili.com")
     QACommuntity(100)
-    QACommuntity("大型同性交友网站","www.github.com")
+    QACommuntity("技术交流社区","www.github.com")
     QACommuntity()
     var a = Derived()
 
