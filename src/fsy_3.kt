@@ -1,7 +1,5 @@
 open class QACommuntity(var url:String) {
-    init {
-        println(url)
-    }
+    init { println(url) }
     constructor(url: String,parent:QACommuntity):this(url){
 
     }
@@ -9,21 +7,23 @@ open class QACommuntity(var url:String) {
         println("被调用")
         println(value)
     }
-
-    constructor(description: String, url: String) : this("[" + url + "]") {
+    constructor(description: String,url:String) : this(url) {
         println(description + ":" + url)
     }
-
     constructor() : this(20) {
         println("<htttp://bilibili.com>")
     }
 }
-open class Base{
+interface Foo{
+    val count:Int
+}
+open class Base(p:Int){
+
     open fun v(){
         println("In the Base")
     }
 }
-class Derived():Base(){
+class Derived(p:Int):Base(p){
     init {
         println("被调用")
     }
@@ -31,6 +31,29 @@ class Derived():Base(){
         println("so crazy")
     }
 }
+open class A{
+    open fun t(){}
+    open fun f(){println("A")}
+    open fun a(){println("a")}
+}
+abstract class Test0_:A(){
+    override abstract fun t()
+}
+interface B{
+    //override abstract fun a()
+    fun f(){println("B")}
+    fun b(){println("b")}
+}
+class C():A(),B{
+    override fun f(){
+        super<A>.f()
+        super<B>.f()
+        a()
+        b()
+    }
+}
+
+
 fun main(){
     var y = 0
     var j = 1
@@ -49,11 +72,13 @@ fun main(){
         j += 1
     }
     println(x)
-    QACommuntity("www.bilibili.com")
-    QACommuntity(100)
-    QACommuntity("技术交流社区","www.github.com")
-    QACommuntity()
-    var a = Derived()
+    var a = QACommuntity("www.bilibili.com")
+    a = QACommuntity(100)
+    a = QACommuntity("同性交友社区","www.github.com")
+    a = QACommuntity()
+    fun test(a:String ="test0"):String{
+        return a.toUpperCase()
+    }
 
 
 }
