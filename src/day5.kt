@@ -78,15 +78,28 @@ interface Interface_Test0{
     fun foo(){
         println(prop)
     }
+    fun asag(){
+        println("三千")
+    }
 }
-class Child1:Interface_Test0{
+interface Interface_Test1{
+
+
+}
+class Child1:Interface_Test0,Interface_Test1{
     override val prop:Int = 29
+
+
 
 }
 
 
 fun main(args:Array<String>){
     var c = Child1()
-    println(c.prop)
+    println(c.asag())
+    fun funcking_(age:Int,name:String = "BOb"){
+        println("age $age name $name")
+    }
+    funcking_(age = 11,name= "Father")
 
 }
