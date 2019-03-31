@@ -42,5 +42,5 @@ fun main(args:Array<String>){
     var a = mutableListOf<Int>(1,2,3,4)
     a.swap(0,3)
     println(a)
-println("f")
+
 }
