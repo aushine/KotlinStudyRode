@@ -88,13 +88,11 @@ interface Interface_Test1{
 }
 class Child1:Interface_Test0,Interface_Test1{
     override val prop:Int = 29
-
-
-
 }
 
 
 fun main(args:Array<String>){
+    println(a13)
     var c = Child1()
     println(c.asag())
     fun funcking_(age:Int,name:String = "BOb"){

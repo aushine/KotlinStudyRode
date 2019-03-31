@@ -1,3 +1,6 @@
+public var a11 = 1
+private var a12 = 14
+internal var a13 = 2
 interface MyInterface{
     var a:Int
     fun process()
@@ -33,8 +36,23 @@ internal class D0:A0,B0{
     }
 }
 
-fun main(args:Array<String>){
-
-    var m = MyClass()
-    print(m.getName())
+open class Outer{
+    private  val a = 1
+    protected open val b = 2
+    internal val c = 3
+    val d = 4
+    inner class Nested{
+        protected val e:Int = 5
+    }
 }
+class Subclass:Outer(){
+    var demo = Nested()
+}
+enum class Direction{
+    NORTH,SOUTH,WEST,EAST
+}
+fun main(args:Array<String>){
+        println(a12)
+        var m = MyClass()
+        print(m.getName())
+    }
