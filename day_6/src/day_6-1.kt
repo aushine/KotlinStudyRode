@@ -24,7 +24,6 @@ class D: A,B {
 enum class Direction() {
     North, South, West, East
 
-
 }
 fun MutableList<Int>.swap(index1:Int,index2:Int){
     val tmp = this[index1]
@@ -41,16 +40,16 @@ fun D.foo() = "d"
 fun printFoo(c:C){
     println(c.foo(1))
 }
-fun Any?.toString():String{
+fun Any?.toString():String{//类的扩展
     if (this == null) return "null"
     return toString()
 }
-val <T> List<T>.lastIndex: Int
+val <T> List<T>.lastIndex: Int//属性的扩展
     get() = size - 1
-class a{
+data class User(val name:String,val age:Int)
 
-}
 fun main(args:Array<String>){
+    var x:ArrayList<Int> = ArrayList()
     var direction1:Direction
     var direction2:Direction = Direction.North
     var direction3:Direction = Direction.East

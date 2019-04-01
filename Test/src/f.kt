@@ -1,27 +1,25 @@
-enum class Direction private constructor(val d:Int){
-    North(1),South(2),West(3),East(4);
-    override fun toString():String{
-        println("go back fuck yourself")
-        return d.toString()
+open class Parent(val value1:Int, val value2:Int){
+    var mValue1 = value1
+    var mValue2 = value2
+    fun add():Int{
+        return mValue1 + mValue2
     }
 }
-class A(){
-    override fun toString():String{
-        return "fuckoff"
+class Child(value1:Int,value2:Int):Parent(value1,value2){
+    fun sub():Int{
+        return mValue1 - mValue2
     }
 }
-enum class Color(val rgb:Int){
-    RED(0xFF0000),
-    GREEN(0x00FF00),
-    BLUE(0x0000FF)
+fun Parent.printResult(){
+    println("${mValue1}+${mValue2} = ${add()}")
 }
-
+fun Child.printResult(){
+    println("${mValue1}-${mValue2} = ${sub()}")
+}
+open class A{}
+class B():A(){}
 fun main(args:Array<String>){
-    var direction1: Direction = Direction.North
-    var direction2 = Direction.West
-    //println(direction1)
-    println(direction2)
-    var a = A()
-    println(a)
-
+    var b:A = B()
+    var parent1:Parent = Parent(1,2)
+    var parent2:Parent = Child(1,2)
 }
