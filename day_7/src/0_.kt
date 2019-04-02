@@ -1,3 +1,8 @@
+/*
+解除结构,在数据类中,用属性表示数据,这些属性属于同一个数据类,要想使用这些属性
+必须要首先引用数据类对象.解构指的就是将数据对象中的属性提取出来,分别赋值给
+单个的变量
+*/
 open class Parent(val value1:Int, val value2:Int) {
     var mValue1: Int = value1
     var mValue2: Int = value2
@@ -65,7 +70,8 @@ class As(){}
 fun main(args:Array<String>){
     var wife1 = Wife("Sakura",500)
     var wife2 = Wife("Marie Rose",17)
-    var wife3 = Wife("Sakura",500)
+    var wife3 = wife1.copy(age = 17)//使用copy函数除了给出的age不同外和wife1一模一样
+    val (name, age) = wife2//将Wife2保存的数据解构给name和age两个变量
     println(wife1)
     println(wife2)
     println(wife1.equals(wife3))
