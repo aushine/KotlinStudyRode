@@ -45,17 +45,25 @@ fun process(obj:MyClass){
         obj.closeData()
     }
 }
-fun main(args:Array<String>){
-    process(object:MyClass("Sakura"),MyInterface
-    {
-        override fun verify(){
-            println("Marie Rose")
-        }
+object a:MyClass("Sakura"),MyInterface
+{   override fun verify(){
+        println("Marie Rose")
     }
-    )
+}
+fun foo()
+{
+    val adHoc = object{
+        var x:Int = 0
+        var y:Int = 0
+    }
+    println(adHoc.x + adHoc.y)
+}
+fun main(args:Array<String>){
+    foo()
+
+    process(a)
+
     val order = Order("sakura",500,true)
-
-
     val list:MutableList<String> =ArrayList()
     val list1 = mutableListOf<String>()
     val list3 = listOf("")
@@ -75,9 +83,7 @@ fun main(args:Array<String>){
     for(i in a){
         println(i)
     }
-
     val demo = Outer().Inner().foo()
-
     println(demo)
     process(object:MyClass("Sakura"){
         override fun verify(){
