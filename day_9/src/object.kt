@@ -58,6 +58,24 @@ fun foo()
     }
     println(adHoc.x + adHoc.y)
 }
+class HerClass{
+    //private函数,返回值类型是匿名对象本身,可以访问x
+    private fun foo() = object {
+        val x:String = "x"
+    }
+    //public函数,由于匿名对象没有任何父类型,因此函数的返回类是Any
+    fun publicFoo() = object
+    {
+        val x :String = "y"
+    }
+    fun bar()
+    {
+        val x1 = foo().x
+        //val x2 = publicFoo().x
+    }
+
+}
+
 fun main(args:Array<String>){
     foo()
 
