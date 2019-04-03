@@ -34,7 +34,6 @@ class A<T>(val a:T){
     constructor(a:T,parent:A<T>):this(a){}
 
 }
-
 fun main(args:Array<String>){
     val list = mutableListOf<String>("Marie Rose","Yea Sakura","")
     println(list.penultimate)
@@ -42,8 +41,4 @@ fun main(args:Array<String>){
     //使用泛型作为类型的实参
     val ints:Array<Int> = arrayOf(1, 2, 3)
     val a = mutableMapOf<Int,String>(1 to "eins",2 to "zwei",3 to "drei")
-
-
-
-
 }
