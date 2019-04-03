@@ -16,10 +16,8 @@ fun Parent.printResult(){
 fun Child.printResult(){
     println("${mValue1}-${mValue2} = ${sub()}")
 }
-open class A{}
-class B():A(){}
 fun main(args:Array<String>){
-    var b:A = B()
+
     var parent1:Parent = Parent(1,2)
     var parent2:Parent = Child(1,2)
 }

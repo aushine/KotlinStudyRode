@@ -12,7 +12,6 @@ class Box0<T>(t:T){
 泛型就是类型的占位符
 等到使用时再根据类型进行不同操作
 */
-
 }
 class Box<T>(t:T){
     var value = t
@@ -29,26 +28,36 @@ fun <T> doprintln(content:T){
 fun <T: Comparable<T>> sort(list:List<T>){
 //函数名叫做sort,接收一个可类比的泛型list
 }
-abstract class Source<out T>{
+//生产者使用out T
+abstract class Source<out T>
+{
     abstract fun nextT():T
 }
 
-abstract class Comparable<in T>{
-    abstract fun compareTo(other:T):Int
+fun demo (strs:Source<String>){
+    val objects:Source<Any> = strs
 }
-fun demo(x:Comparable<Number>){
-
+//消费者使用 in T
+abstract class Comparable<in T>{
+    abstract fun compareTo(other:T):Int//声明为in T 返回值就不能使用 T
+}
+fun demo1(x:Comparable<Number>){
     x.compareTo(1.0)
     val y:Comparable<Double> = x
 }
-abstract class Source1<out T>{
-    abstract fun nextT():T
-}
-fun Demo0(strs:Source1<String>){
-    val objects:Source1<Any> = strs
+/*
+<? extends project>
+生产者处使用out T
+消费者处使用in T
+ */
+class Array<T>(val size:Int){
+    //fun get(index:Int):T{/*...*/}
+    fun set(index:Int,value:T){/*..*/}
+  //  fun set(index:Int,value:T){println("size get daze")}
 }
 
 fun main(args:Array<String>){
+
     val list = listOf("aa","dddd","bbb","c")
     val sorted = list.sortedWith(compareBy{it.length})
     println(sorted)
