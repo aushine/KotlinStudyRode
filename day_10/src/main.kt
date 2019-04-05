@@ -1,6 +1,12 @@
 import f.*
 
 fun main(args:Array<String>) {
+    val lazyValue:Int by lazy{
+        println("Computed!")
+        13
+    }
+    println(lazyValue)
+    println(lazyValue)
     val c3 = Myclass3()
     val c4 = Mycalss4()
     c3.name = "Sakura"
